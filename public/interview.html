@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Interview Practice - AI Interview Prep</title>
+
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- EXISTING CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="interview.css">
+
+
+    <!-- =====================================================
+         LOGIN PROTECTION
+    ====================================================== -->
+
+    <script>
+
+        function checkInterviewLogin() {
+
+            const loggedIn =
+                localStorage.getItem("isLoggedIn") === "true" ||
+                localStorage.getItem("loggedIn") === "true" ||
+                localStorage.getItem("userLoggedIn") === "true" ||
+                sessionStorage.getItem("isLoggedIn") === "true" ||
+                sessionStorage.getItem("loggedIn") === "true" ||
+                sessionStorage.getItem("userLoggedIn") === "true";
+
+
+            if (!loggedIn) {
+
+                window.location.replace("login.html");
+
+            }
+
+        }
+
+
+        checkInterviewLogin();
+
+    </script>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+====================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+
+        <!-- LOGO -->
+
+        <a href="index.html" class="logo">
+
+            <img
+                src="logo.png"
+                alt="AI Interview Prep"
+            >
+
+            <span>
+                AI Interview Prep
+            </span>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a
+                href="interview.html"
+                class="active"
+            >
+                Practice
+            </a>
+
+            <a href="questions.html">
+                Questions
+            </a>
+
+        </nav>
+
+
+        <!-- USER AREA -->
+
+        <div class="nav-actions">
+
+            <span
+                class="user-name"
+                id="interviewUserName"
+            >
+                Hi, User 👋
+            </span>
+
+            <button
+                type="button"
+                class="logout-button"
+                id="interviewLogoutButton"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     INTERVIEW PAGE
+====================================================== -->
+
+<main class="interview-page">
+
+
+    <!-- =================================================
+         SETUP SCREEN
+    ================================================== -->
+
+    <section
+        id="setupScreen"
+        class="interview-container"
+    >
+
+        <div class="interview-header">
+
+            <div class="interview-badge">
+                🤖 AI INTERVIEW
+            </div>
+
+            <h1>
+                Practice Your Interview
+            </h1>
+
+            <p>
+                Choose your interview settings and start
+                practicing with your AI interviewer.
+            </p>
+
+        </div>
+
+
+        <div class="setup-card">
+
+
+            <div class="form-group">
+
+                <label for="jobRole">
+                    Job Role
+                </label>
+
+                <select id="jobRole">
+
+                    <option value="Software Developer">
+                        Software Developer
+                    </option>
+
+                    <option value="Web Developer">
+                        Web Developer
+                    </option>
+
+                    <option value="Java Developer">
+                        Java Developer
+                    </option>
+
+                    <option value="Python Developer">
+                        Python Developer
+                    </option>
+
+                    <option value="Data Analyst">
+                        Data Analyst
+                    </option>
+
+                    <option value="Data Scientist">
+                        Data Scientist
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="interviewType">
+                    Interview Type
+                </label>
+
+                <select id="interviewType">
+
+                    <option value="Technical">
+                        Technical
+                    </option>
+
+                    <option value="HR">
+                        HR
+                    </option>
+
+                    <option value="Behavioral">
+                        Behavioral
+                    </option>
+
+                    <option value="Mixed">
+                        Mixed
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="difficulty">
+                    Difficulty
+                </label>
+
+                <select id="difficulty">
+
+                    <option value="Easy">
+                        Easy
+                    </option>
+
+                    <option value="Medium" selected>
+                        Medium
+                    </option>
+
+                    <option value="Hard">
+                        Hard
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="questionCount">
+                    Number of Questions
+                </label>
+
+                <select id="questionCount">
+
+                    <option value="3">
+                        3 Questions
+                    </option>
+
+                    <option value="5" selected>
+                        5 Questions
+                    </option>
+
+                    <option value="10">
+                        10 Questions
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="start-interview-btn"
+                onclick="beginInterview()"
+            >
+                🚀 Start Interview
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         INTERVIEW SCREEN
+    ================================================== -->
+
+    <section
+        id="interviewScreen"
+        class="interview-container"
+        style="display:none;"
+    >
+
+
+        <div class="interview-header">
+
+            <div>
+
+                <div class="interview-badge">
+                    🤖 AI INTERVIEW
+                </div>
+
+                <h2 id="interviewRole">
+                    Software Developer
+                </h2>
+
+            </div>
+
+
+            <div class="question-counter">
+
+                Question
+
+                <span id="currentNumber">
+                    1
+                </span>
+
+                /
+
+                <span id="totalNumber">
+                    5
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-container">
+
+            <div
+                id="questionProgress"
+                class="progress-bar"
+            ></div>
+
+        </div>
+
+
+
+        <!-- QUESTION -->
+
+        <div class="question-card">
+
+
+            <div class="question-icon">
+                🤖
+            </div>
+
+
+            <h2>
+                Interview Question
+            </h2>
+
+
+            <p
+                id="questionText"
+                class="question-text"
+            >
+                Tell me about yourself.
+            </p>
+
+
+            <button
+                type="button"
+                class="hear-question-btn"
+                onclick="speakCurrentQuestion()"
+            >
+                🔊 Hear Question
+            </button>
+
+
+        </div>
+
+
+
+        <!-- ANSWER -->
+
+        <div class="answer-card">
+
+
+            <label for="userAnswer">
+                Your Answer
+            </label>
+
+
+            <textarea
+                id="userAnswer"
+                placeholder="Type your answer here..."
+                oninput="updateWordCount()"
+            ></textarea>
+
+
+            <div class="answer-controls">
+
+
+                <button
+                    type="button"
+                    id="micButton"
+                    class="voice-button"
+                    onclick="toggleListening()"
+                >
+                    🎤 Start Speaking
+                </button>
+
+
+                <button
+                    type="button"
+                    class="clear-button"
+                    onclick="clearAnswer()"
+                >
+                    🗑️ Clear
+                </button>
+
+
+                <span
+                    id="voiceStatus"
+                    class="voice-status"
+                ></span>
+
+
+            </div>
+
+
+            <div class="word-count">
+
+                <span id="wordCount">
+                    0 words
+                </span>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="submit-answer-btn"
+                onclick="submitInterviewAnswer()"
+            >
+                Submit Answer
+            </button>
+
+
+            <div
+                id="questionFeedback"
+                class="question-feedback"
+            ></div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         RESULT SCREEN
+    ================================================== -->
+
+    <section
+        id="resultScreen"
+        class="result-container"
+        style="display:none;"
+    >
+
+
+        <div class="result-icon">
+            🎉
+        </div>
+
+
+        <h1>
+            Interview Complete!
+        </h1>
+
+
+        <p>
+            Here is your interview performance.
+        </p>
+
+
+        <div class="final-score">
+
+            <span id="finalScore">
+                0
+            </span>
+
+            <small>
+                / 100
+            </small>
+
+        </div>
+
+
+        <div class="score-grid">
+
+
+            <div class="score-card">
+
+                <span>
+                    Communication
+                </span>
+
+                <strong id="communicationScore">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="score-card">
+
+                <span>
+                    Technical Knowledge
+                </span>
+
+                <strong id="knowledgeScore">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="score-card">
+
+                <span>
+                    Relevance
+                </span>
+
+                <strong id="relevanceScore">
+                    0
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <h3 id="scoreMessage">
+            Good job!
+        </h3>
+
+
+        <div
+            id="finalFeedback"
+            class="final-feedback"
+        ></div>
+
+
+        <div class="result-buttons">
+
+
+            <button
+                type="button"
+                onclick="restartInterview()"
+            >
+                🔄 Try Again
+            </button>
+
+
+            <button
+                type="button"
+                onclick="goDashboard()"
+            >
+                📊 Dashboard
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     YOUR ORIGINAL INTERVIEW JAVASCRIPT
+====================================================== -->
+
+<script src="interview.js"></script>
+
+
+
+<!-- =====================================================
+     USER NAME + LOGOUT
+====================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        /* GET USER NAME */
+
+        function getUserName() {
+
+            let name =
+                localStorage.getItem(
+                    "loggedInUserName"
+                );
+
+
+            if (
+                !name ||
+                name.trim() === ""
+            ) {
+
+                name =
+                    sessionStorage.getItem(
+                        "loggedInUserName"
+                    );
+
+            }
+
+
+            if (
+                !name ||
+                name.trim() === ""
+            ) {
+
+                name =
+                    localStorage.getItem(
+                        "userName"
+                    );
+
+            }
+
+
+            if (
+                !name ||
+                name.trim() === ""
+            ) {
+
+                name =
+                    sessionStorage.getItem(
+                        "userName"
+                    );
+
+            }
+
+
+            return name || "User";
+
+        }
+
+
+
+        /* SHOW USER NAME */
+
+        const userName =
+            document.getElementById(
+                "interviewUserName"
+            );
+
+
+        if (userName) {
+
+            userName.textContent =
+                "Hi, " + getUserName() + " 👋";
+
+        }
+
+
+
+        /* LOGOUT */
+
+        const logoutButton =
+            document.getElementById(
+                "interviewLogoutButton"
+            );
+
+
+        if (logoutButton) {
+
+            logoutButton.addEventListener(
+                "click",
+                function () {
+
+
+                    localStorage.removeItem(
+                        "isLoggedIn"
+                    );
+
+                    localStorage.removeItem(
+                        "loggedIn"
+                    );
+
+                    localStorage.removeItem(
+                        "userLoggedIn"
+                    );
+
+                    localStorage.removeItem(
+                        "loggedInEmail"
+                    );
+
+                    localStorage.removeItem(
+                        "loggedInUserName"
+                    );
+
+                    localStorage.removeItem(
+                        "rememberMe"
+                    );
+
+                    localStorage.removeItem(
+                        "userName"
+                    );
+
+
+                    sessionStorage.removeItem(
+                        "isLoggedIn"
+                    );
+
+                    sessionStorage.removeItem(
+                        "loggedIn"
+                    );
+
+                    sessionStorage.removeItem(
+                        "userLoggedIn"
+                    );
+
+                    sessionStorage.removeItem(
+                        "loggedInEmail"
+                    );
+
+                    sessionStorage.removeItem(
+                        "loggedInUserName"
+                    );
+
+                    sessionStorage.removeItem(
+                        "userName"
+                    );
+
+
+                    window.location.replace(
+                        "index.html"
+                    );
+
+                }
+            );
+
+        }
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>

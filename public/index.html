@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AI Interview Prep</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="logo.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="/"
+            class="logo"
+        >
+
+            <img
+                src="logo.png"
+                alt="AI Interview Prep"
+            >
+
+            <span>
+                AI Interview Prep
+            </span>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="nav-links">
+
+            <a
+                href="/"
+                class="active"
+            >
+                Home
+            </a>
+
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+
+            <a href="interview.html">
+                Practice
+            </a>
+
+
+            <a href="questions.html">
+                Questions
+            </a>
+
+        </nav>
+
+
+        <!-- LOGIN / SIGNUP OR USER AREA -->
+
+        <div
+            class="nav-actions"
+            id="authArea"
+        >
+
+            <!-- JavaScript will fill this -->
+
+        </div>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN HOME SECTION
+===================================================== -->
+
+<main class="hero">
+
+
+    <!-- LEFT SIDE -->
+
+    <section class="hero-left">
+
+
+        <div class="badge">
+
+            AI Powered Interview Preparation
+
+        </div>
+
+
+        <h1>
+
+            Prepare smarter.
+
+            <br>
+
+            <span>
+                Interview better.
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Practice interview questions,
+            improve your answers, and build
+            confidence with our AI-powered
+            interview preparation platform.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+
+            <a
+                href="interview.html"
+                class="start-button"
+            >
+                🚀 Start Practice
+            </a>
+
+
+            <a
+                href="dashboard.html"
+                class="dashboard-button"
+            >
+                View Dashboard
+            </a>
+
+
+        </div>
+
+
+        <div class="features">
+
+            <div>
+                ✓ AI Interview Practice
+            </div>
+
+
+            <div>
+                ✓ Voice &amp; Text Answers
+            </div>
+
+
+            <div>
+                ✓ Instant Feedback
+            </div>
+
+
+            <div>
+                ✓ Track Your Progress
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- RIGHT SIDE -->
+
+    <section class="interview-card">
+
+
+        <div class="card-header">
+
+            <h2>
+                🤖 AI Interviewer
+            </h2>
+
+
+            <span class="live">
+                ● Live
+            </span>
+
+        </div>
+
+
+        <div class="robot">
+
+            🤖
+
+        </div>
+
+
+        <h3>
+            Interview Question
+        </h3>
+
+
+        <p class="question">
+            Tell me about yourself.
+        </p>
+
+
+        <textarea
+            id="homeAnswer"
+            class="answer-box"
+            placeholder="Type your answer here..."
+        ></textarea>
+
+
+        <button
+            type="button"
+            class="submit-button"
+            onclick="submitHomeAnswer()"
+        >
+            Submit Answer
+        </button>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     SOCIAL MEDIA
+===================================================== -->
+
+<section class="social-section">
+
+
+    <h2>
+        Connect With Us
+    </h2>
+
+
+    <p>
+        Follow AI Interview Prep on social media.
+    </p>
+
+
+    <div class="social-links">
+
+
+        <!-- =================================================
+             INSTAGRAM
+             SAEC AUTONOMOUS
+        ================================================== -->
+
+        <a
+            href="https://www.instagram.com/saec_autonomous/"
+            class="social-button instagram-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="SA Engineering College Instagram"
+        >
+
+            <svg
+                class="social-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5"
+                    ry="5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                ></rect>
+
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                ></circle>
+
+
+                <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1"
+                    fill="currentColor"
+                ></circle>
+
+            </svg>
+
+
+            <span>
+                Instagram
+            </span>
+
+        </a>
+
+
+
+        <!-- =================================================
+             LINKEDIN
+             SA ENGINEERING COLLEGE
+        ================================================== -->
+
+        <a
+            href="https://in.linkedin.com/company/sa-engineering-college-autonomous"
+            class="social-button linkedin-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="SA Engineering College LinkedIn"
+        >
+
+            <svg
+                class="social-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    fill="currentColor"
+                    d="M6.5 8.5H3V21h3.5V8.5ZM4.75 3A2.05 2.05 0 1 0 4.75 7.1 2.05 2.05 0 0 0 4.75 3ZM21 13.9c0-3.77-2.01-5.52-4.7-5.52-2.16 0-3.13 1.19-3.67 2.03V8.5H9.13V21h3.5v-6.19c0-1.63.31-3.21 2.33-3.21 1.99 0 2.02 1.87 2.02 3.32V21H21v-7.1Z"
+                ></path>
+
+            </svg>
+
+
+            <span>
+                LinkedIn
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 AI Interview Prep.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     LOGIN / USER SYSTEM
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   CHECK LOGIN STATUS
+===================================================== */
+
+function isLoggedIn() {
+
+    const localLoggedIn =
+        localStorage.getItem("isLoggedIn") === "true" ||
+        localStorage.getItem("loggedIn") === "true" ||
+        localStorage.getItem("userLoggedIn") === "true";
+
+
+    const sessionLoggedIn =
+        sessionStorage.getItem("isLoggedIn") === "true" ||
+        sessionStorage.getItem("loggedIn") === "true" ||
+        sessionStorage.getItem("userLoggedIn") === "true";
+
+
+    return (
+        localLoggedIn ||
+        sessionLoggedIn
+    );
+
+}
+
+
+
+/* =====================================================
+   GET USER NAME
+===================================================== */
+
+function getLoggedInUserName() {
+
+    let userName =
+        localStorage.getItem(
+            "loggedInUserName"
+        );
+
+
+    if (
+        !userName ||
+        userName.trim() === ""
+    ) {
+
+        userName =
+            sessionStorage.getItem(
+                "loggedInUserName"
+            );
+
+    }
+
+
+    if (
+        !userName ||
+        userName.trim() === ""
+    ) {
+
+        userName =
+            localStorage.getItem(
+                "userName"
+            );
+
+    }
+
+
+    if (
+        !userName ||
+        userName.trim() === ""
+    ) {
+
+        userName =
+            sessionStorage.getItem(
+                "userName"
+            );
+
+    }
+
+
+    if (
+        !userName ||
+        userName.trim() === ""
+    ) {
+
+        return "User";
+
+    }
+
+
+    return userName.trim();
+
+}
+
+
+
+/* =====================================================
+   UPDATE NAVBAR
+===================================================== */
+
+function updateAuthArea() {
+
+    const authArea =
+        document.getElementById(
+            "authArea"
+        );
+
+
+    if (!authArea) {
+
+        return;
+
+    }
+
+
+    /* ================================================
+       USER IS LOGGED IN
+    ================================================ */
+
+    if (isLoggedIn()) {
+
+        const userName =
+            getLoggedInUserName();
+
+
+        authArea.innerHTML = `
+
+            <span class="user-name">
+                Hi, ${userName} 👋
+            </span>
+
+
+            <a
+                href="dashboard.html"
+                class="dashboard-button-top"
+            >
+                👤 Dashboard
+            </a>
+
+
+            <button
+                type="button"
+                class="logout-button"
+                id="homeLogoutButton"
+            >
+                Logout
+            </button>
+
+        `;
+
+
+        const logoutButton =
+            document.getElementById(
+                "homeLogoutButton"
+            );
+
+
+        if (logoutButton) {
+
+            logoutButton.addEventListener(
+                "click",
+                logoutUser
+            );
+
+        }
+
+    }
+
+
+    /* ================================================
+       USER IS NOT LOGGED IN
+    ================================================ */
+
+    else {
+
+        authArea.innerHTML = `
+
+            <a
+                href="login.html"
+                class="login-button"
+            >
+                Login
+            </a>
+
+
+            <a
+                href="signup.html"
+                class="signup-button"
+            >
+                Sign Up
+            </a>
+
+        `;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   LOGOUT USER
+===================================================== */
+
+function logoutUser() {
+
+
+    /* LOCAL STORAGE */
+
+    localStorage.removeItem(
+        "isLoggedIn"
+    );
+
+
+    localStorage.removeItem(
+        "loggedIn"
+    );
+
+
+    localStorage.removeItem(
+        "userLoggedIn"
+    );
+
+
+    localStorage.removeItem(
+        "loggedInEmail"
+    );
+
+
+    localStorage.removeItem(
+        "loggedInUserName"
+    );
+
+
+    localStorage.removeItem(
+        "rememberMe"
+    );
+
+
+    localStorage.removeItem(
+        "userName"
+    );
+
+
+    /* SESSION STORAGE */
+
+    sessionStorage.removeItem(
+        "isLoggedIn"
+    );
+
+
+    sessionStorage.removeItem(
+        "loggedIn"
+    );
+
+
+    sessionStorage.removeItem(
+        "userLoggedIn"
+    );
+
+
+    sessionStorage.removeItem(
+        "loggedInEmail"
+    );
+
+
+    sessionStorage.removeItem(
+        "loggedInUserName"
+    );
+
+
+    sessionStorage.removeItem(
+        "userName"
+    );
+
+
+    /* RETURN TO HOME */
+
+    window.location.href =
+        "/";
+
+}
+
+
+
+/* =====================================================
+   HOME INTERVIEW ANSWER
+===================================================== */
+
+function submitHomeAnswer() {
+
+    const answerBox =
+        document.getElementById(
+            "homeAnswer"
+        );
+
+
+    if (!answerBox) {
+
+        return;
+
+    }
+
+
+    const answer =
+        answerBox.value.trim();
+
+
+    /* EMPTY ANSWER */
+
+    if (answer === "") {
+
+        alert(
+            "Please type your answer first."
+        );
+
+        return;
+
+    }
+
+
+    /* NOT LOGGED IN */
+
+    if (!isLoggedIn()) {
+
+        alert(
+            "Please login first to use the AI Interview."
+        );
+
+
+        window.location.href =
+            "login.html";
+
+
+        return;
+
+    }
+
+
+    /* LOGGED IN */
+
+    window.location.href =
+        "interview.html";
+
+}
+
+
+
+/* =====================================================
+   PAGE LOAD
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        updateAuthArea();
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - AI Interview Prep</title>
+
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="dashboard.css">
+
+
+    <!-- =================================================
+         PROTECT DASHBOARD
+         USER MUST BE LOGGED IN
+    ================================================== -->
+
+    <script>
+
+        function checkDashboardLogin() {
+
+            const loggedIn =
+                localStorage.getItem("isLoggedIn") === "true" ||
+                localStorage.getItem("loggedIn") === "true" ||
+                localStorage.getItem("userLoggedIn") === "true" ||
+                sessionStorage.getItem("isLoggedIn") === "true" ||
+                sessionStorage.getItem("loggedIn") === "true" ||
+                sessionStorage.getItem("userLoggedIn") === "true";
+
+
+            if (!loggedIn) {
+
+                window.location.replace("login.html");
+
+            }
+
+        }
+
+
+        /* CHECK BEFORE DASHBOARD IS DISPLAYED */
+
+        checkDashboardLogin();
+
+    </script>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+
+        <!-- LOGO -->
+
+        <a href="index.html" class="logo">
+
+            <img
+                src="logo.png"
+                alt="AI Interview Prep"
+            >
+
+            <span>
+                AI Interview Prep
+            </span>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a
+                href="dashboard.html"
+                class="active"
+            >
+                Dashboard
+            </a>
+
+            <a href="interview.html">
+                Practice
+            </a>
+
+            <a href="questions.html">
+                Questions
+            </a>
+
+        </nav>
+
+
+        <!-- USER AREA -->
+
+        <div
+            class="nav-actions"
+            id="dashboardAuthArea"
+        >
+
+            <span
+                class="user-name"
+                id="dashboardUserName"
+            >
+                Hi, User 👋
+            </span>
+
+
+            <button
+                type="button"
+                class="logout-button"
+                id="dashboardLogoutButton"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<main class="dashboard-container">
+
+
+    <!-- =================================================
+         DASHBOARD HEADER
+    ================================================== -->
+
+    <section class="dashboard-header">
+
+
+        <div class="dashboard-welcome">
+
+            <div class="dashboard-welcome-label">
+                WELCOME BACK 👋
+            </div>
+
+
+            <h1>
+                Ready for your next interview?
+            </h1>
+
+
+            <p>
+                Continue practicing and improve your
+                interview performance.
+            </p>
+
+        </div>
+
+
+        <a
+            href="interview.html"
+            class="start-interview-button"
+        >
+            🚀 Start AI Interview
+        </a>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         STAT CARDS
+    ================================================== -->
+
+    <section class="dashboard-stats">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎯
+            </div>
+
+            <div class="stat-info">
+
+                <div class="stat-label">
+                    Interviews Completed
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="interviewsCompleted"
+                >
+                    0
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📊
+            </div>
+
+            <div class="stat-info">
+
+                <div class="stat-label">
+                    Average Score
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="averageScore"
+                >
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ✅
+            </div>
+
+            <div class="stat-info">
+
+                <div class="stat-label">
+                    Questions Answered
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="questionsAnswered"
+                >
+                    0
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔥
+            </div>
+
+            <div class="stat-info">
+
+                <div class="stat-label">
+                    Practice Streak
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="practiceStreak"
+                >
+                    0 Days
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         MAIN DASHBOARD GRID
+    ================================================== -->
+
+    <section class="dashboard-grid">
+
+
+        <!-- PERFORMANCE -->
+
+        <div class="dashboard-panel">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        Performance Overview
+                    </h2>
+
+                    <p>
+                        Your interview performance over time
+                    </p>
+
+                </div>
+
+
+                <select
+                    class="dashboard-filter"
+                    id="performanceFilter"
+                >
+
+                    <option>
+                        Last 7 Days
+                    </option>
+
+                    <option>
+                        Last 30 Days
+                    </option>
+
+                    <option>
+                        All Time
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="empty-performance">
+
+                <div class="empty-icon">
+                    📈
+                </div>
+
+
+                <h3>
+                    No interview data yet
+                </h3>
+
+
+                <p>
+                    Complete your first AI interview
+                    to see your performance here.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- SKILLS -->
+
+        <div class="dashboard-panel">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        Skills
+                    </h2>
+
+                    <p>
+                        Your current strengths
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="skills-empty">
+
+                <div class="skills-icon">
+                    💡
+                </div>
+
+
+                <h3>
+                    Skills will appear here
+                </h3>
+
+
+                <p>
+                    Complete an interview to receive
+                    skill-based feedback.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- RECENT INTERVIEWS -->
+
+    <section
+        class="dashboard-panel recent-interviews"
+        id="recentInterviewsSection"
+        style="display:none;"
+    >
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+                    Recent Interviews
+                </h2>
+
+                <p>
+                    Your latest interview attempts
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="recentInterviewsList"></div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     DASHBOARD JS
+===================================================== -->
+
+<script src="dashboard.js"></script>
+
+
+
+<!-- =====================================================
+     USER + LOGOUT
+===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        /* ================================================
+           GET USER NAME
+        ================================================= */
+
+        function getUserName() {
+
+            let name =
+                localStorage.getItem(
+                    "loggedInUserName"
+                );
+
+
+            if (
+                !name ||
+                name.trim() === ""
+            ) {
+
+                name =
+                    sessionStorage.getItem(
+                        "loggedInUserName"
+                    );
+
+            }
+
+
+            if (
+                !name ||
+                name.trim() === ""
+            ) {
+
+                name =
+                    localStorage.getItem(
+                        "userName"
+                    );
+
+            }
+
+
+            if (
+                !name ||
+                name.trim() === ""
+            ) {
+
+                name =
+                    sessionStorage.getItem(
+                        "userName"
+                    );
+
+            }
+
+
+            return name || "User";
+
+        }
+
+
+
+        /* ================================================
+           DISPLAY USER NAME
+        ================================================= */
+
+        const userNameElement =
+            document.getElementById(
+                "dashboardUserName"
+            );
+
+
+        if (userNameElement) {
+
+            userNameElement.textContent =
+                "Hi, " + getUserName() + " 👋";
+
+        }
+
+
+
+        /* ================================================
+           LOGOUT BUTTON
+        ================================================= */
+
+        const logoutButton =
+            document.getElementById(
+                "dashboardLogoutButton"
+            );
+
+
+        if (logoutButton) {
+
+
+            logoutButton.addEventListener(
+                "click",
+                function () {
+
+
+                    /* REMOVE ALL LOGIN DATA */
+
+                    localStorage.removeItem(
+                        "isLoggedIn"
+                    );
+
+                    localStorage.removeItem(
+                        "loggedIn"
+                    );
+
+                    localStorage.removeItem(
+                        "userLoggedIn"
+                    );
+
+                    localStorage.removeItem(
+                        "loggedInEmail"
+                    );
+
+                    localStorage.removeItem(
+                        "loggedInUserName"
+                    );
+
+                    localStorage.removeItem(
+                        "rememberMe"
+                    );
+
+                    localStorage.removeItem(
+                        "userName"
+                    );
+
+
+                    sessionStorage.removeItem(
+                        "isLoggedIn"
+                    );
+
+                    sessionStorage.removeItem(
+                        "loggedIn"
+                    );
+
+                    sessionStorage.removeItem(
+                        "userLoggedIn"
+                    );
+
+                    sessionStorage.removeItem(
+                        "loggedInEmail"
+                    );
+
+                    sessionStorage.removeItem(
+                        "loggedInUserName"
+                    );
+
+                    sessionStorage.removeItem(
+                        "userName"
+                    );
+
+
+                    /* RETURN TO HOME */
+
+                    window.location.replace(
+                        "index.html"
+                    );
+
+                }
+            );
+
+        }
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>

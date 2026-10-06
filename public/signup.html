@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up - AI Interview Prep</title>
+
+    <link rel="stylesheet" href="signup.css">
+
+</head>
+
+
+<body>
+
+
+<div class="signup-page">
+
+
+    <!-- LEFT SIDE -->
+
+    <section class="signup-left">
+
+        <div class="brand">
+
+            <img src="logo.png" alt="AI Interview Prep Logo">
+
+            <span>AI Interview Prep</span>
+
+        </div>
+
+
+        <div class="left-content">
+
+            <h1>
+                Start Your<br>
+                <span>Interview Journey.</span>
+            </h1>
+
+
+            <p>
+                Create your account and start practicing
+                interviews with AI-powered preparation.
+            </p>
+
+
+            <div class="features">
+
+                <div>✓ AI Interview Practice</div>
+
+                <div>✓ Voice &amp; Text Answers</div>
+
+                <div>✓ Instant AI Feedback</div>
+
+                <div>✓ Track Your Progress</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- RIGHT SIDE -->
+
+    <section class="signup-right">
+
+
+        <div class="signup-card">
+
+
+            <div class="signup-heading">
+
+                <h2>
+                    Create Account 🚀
+                </h2>
+
+                <p>
+                    Start your interview preparation journey.
+                </p>
+
+            </div>
+
+
+
+            <!-- SIGN UP FORM -->
+
+            <form id="signupForm" onsubmit="createAccount(event)">
+
+
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="signupEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="signupPassword">
+                        Password
+                    </label>
+
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="signupPassword"
+                            placeholder="Create a password"
+                            required
+                            minlength="6"
+                        >
+
+                        <button
+                            type="button"
+                            class="eye-button"
+                            onclick="toggleSignupPassword()"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm your password"
+                            required
+                            minlength="6"
+                        >
+
+                        <button
+                            type="button"
+                            class="eye-button"
+                            onclick="toggleConfirmPassword()"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TERMS -->
+
+                <label class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <span>
+                        I agree to the Terms &amp; Conditions
+                    </span>
+
+                </label>
+
+
+
+                <!-- CREATE ACCOUNT -->
+
+                <button
+                    type="submit"
+                    class="create-button"
+                >
+
+                    Create Account
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- DIVIDER -->
+
+            <div class="divider">
+
+                <span></span>
+
+                <p>OR</p>
+
+                <span></span>
+
+            </div>
+
+
+
+            <!-- GOOGLE -->
+
+            <button
+                type="button"
+                class="google-button"
+                onclick="signupWithGoogle()"
+            >
+
+                <span class="google-icon">
+                    G
+                </span>
+
+                <span>
+                    Continue with Google
+                </span>
+
+            </button>
+
+
+
+            <!-- LOGIN -->
+
+            <p class="login-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </p>
+
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<script src="signup.js"></script>
+
+</body>
+
+</html>

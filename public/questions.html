@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Interview Questions - AI Interview Prep</title>
+
+    <!-- BROWSER TAB ICON -->
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7ff;
+            color: #17213c;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            height: 82px;
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 7%;
+
+            gap: 40px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            margin-right: auto;
+        }
+
+        .brand img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .brand span {
+            font-size: 28px;
+            font-weight: 700;
+
+            background: linear-gradient(
+                90deg,
+                #4f46e5,
+                #7c3aed
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #17213c;
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #5b45ed;
+        }
+
+        .nav-links .active {
+            color: #5b45ed;
+            font-weight: 700;
+        }
+
+        .dashboard-button {
+            text-decoration: none;
+
+            background: linear-gradient(
+                90deg,
+                #4f46e5,
+                #7c3aed
+            );
+
+            color: white;
+
+            padding: 14px 22px;
+
+            border-radius: 12px;
+
+            font-weight: 700;
+        }
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .page {
+            width: 86%;
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 60px 0 80px;
+        }
+
+        .page-header {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+        .page-header .badge {
+            display: inline-block;
+
+            background: #ecebff;
+            color: #5146d8;
+
+            padding: 9px 18px;
+
+            border-radius: 30px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+        }
+
+        .page-header h1 {
+            font-size: 46px;
+            margin-bottom: 15px;
+        }
+
+        .page-header h1 span {
+            color: #5b45ed;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #60708f;
+
+            max-width: 700px;
+            margin: auto;
+
+            line-height: 1.7;
+        }
+
+        /* =========================
+           QUESTION CARDS
+        ========================= */
+
+        .questions-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+        .question-card {
+            background: white;
+
+            border: 1px solid #e4e7f0;
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            box-shadow:
+                0 10px 30px rgba(
+                    30,
+                    40,
+                    80,
+                    0.06
+                );
+
+            transition: 0.25s;
+        }
+
+        .question-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 40px rgba(
+                    60,
+                    50,
+                    150,
+                    0.12
+                );
+        }
+
+        .question-number {
+            width: 45px;
+            height: 45px;
+
+            border-radius: 12px;
+
+            background: #eeedff;
+
+            color: #5b45ed;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            margin-bottom: 18px;
+        }
+
+        .question-card h2 {
+            font-size: 21px;
+
+            margin-bottom: 12px;
+        }
+
+        .question-card p {
+            color: #64748b;
+
+            line-height: 1.7;
+
+            margin-bottom: 20px;
+        }
+
+        .question-tag {
+            display: inline-block;
+
+            background: #f1f5ff;
+
+            color: #5146d8;
+
+            padding: 7px 13px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+        /* =========================
+           START INTERVIEW
+        ========================= */
+
+        .practice-section {
+            margin-top: 55px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4f46e5,
+                    #7c3aed
+                );
+
+            border-radius: 22px;
+
+            padding: 45px;
+
+            text-align: center;
+
+            color: white;
+        }
+
+        .practice-section h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .practice-section p {
+            opacity: 0.9;
+
+            margin-bottom: 25px;
+
+            font-size: 17px;
+        }
+
+        .practice-button {
+            display: inline-block;
+
+            background: white;
+
+            color: #5545e8;
+
+            text-decoration: none;
+
+            padding: 14px 28px;
+
+            border-radius: 10px;
+
+            font-weight: 700;
+        }
+
+        .practice-button:hover {
+            background: #f4f3ff;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #17213c;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+
+            margin-top: 40px;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .navbar {
+                height: auto;
+
+                padding: 18px 5%;
+
+                flex-wrap: wrap;
+            }
+
+            .brand {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .brand span {
+                font-size: 23px;
+            }
+
+            .nav-links {
+                width: 100%;
+
+                justify-content: center;
+
+                gap: 18px;
+
+                flex-wrap: wrap;
+            }
+
+            .dashboard-button {
+                padding: 10px 15px;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .questions-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <header class="navbar">
+
+        <div class="brand">
+
+            <img
+                src="logo.png"
+                alt="AI Interview Prep Logo"
+            >
+
+            <span>
+                AI Interview Prep
+            </span>
+
+        </div>
+
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="interview.html">
+                Practice
+            </a>
+
+            <a
+                href="questions.html"
+                class="active"
+            >
+                Questions
+            </a>
+
+            <a
+                href="dashboard.html"
+                class="dashboard-button"
+            >
+                👤 Dashboard
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main class="page">
+
+
+        <section class="page-header">
+
+            <div class="badge">
+                📚 Interview Preparation
+            </div>
+
+            <h1>
+                Common Interview
+                <span>Questions</span>
+            </h1>
+
+            <p>
+                Practice these common interview questions
+                and prepare yourself for your next interview.
+            </p>
+
+        </section>
+
+
+        <!-- QUESTIONS -->
+
+        <section class="questions-grid">
+
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    01
+                </div>
+
+                <h2>
+                    Tell me about yourself.
+                </h2>
+
+                <p>
+                    Give a short introduction about yourself,
+                    your education, skills, experience,
+                    and career goals.
+                </p>
+
+                <span class="question-tag">
+                    General
+                </span>
+
+            </div>
+
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    02
+                </div>
+
+                <h2>
+                    Why should we hire you?
+                </h2>
+
+                <p>
+                    Explain your strongest skills and
+                    how you can contribute to the company.
+                </p>
+
+                <span class="question-tag">
+                    HR
+                </span>
+
+            </div>
+
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    03
+                </div>
+
+                <h2>
+                    What are your strengths?
+                </h2>
+
+                <p>
+                    Talk about your important strengths
+                    and provide examples that demonstrate them.
+                </p>
+
+                <span class="question-tag">
+                    HR
+                </span>
+
+            </div>
+
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    04
+                </div>
+
+                <h2>
+                    What is your biggest weakness?
+                </h2>
+
+                <p>
+                    Mention a genuine area for improvement
+                    and explain what you are doing to improve it.
+                </p>
+
+                <span class="question-tag">
+                    HR
+                </span>
+
+            </div>
+
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    05
+                </div>
+
+                <h2>
+                    Why do you want to join our company?
+                </h2>
+
+                <p>
+                    Explain why the company, role,
+                    culture, or opportunity interests you.
+                </p>
+
+                <span class="question-tag">
+                    HR
+                </span>
+
+            </div>
+
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    06
+                </div>
+
+                <h2>
+                    Where do you see yourself in five years?
+                </h2>
+
+                <p>
+                    Describe your career goals and how
+                    the position can help you grow professionally.
+                </p>
+
+                <span class="question-tag">
+                    Career
+                </span>
+
+            </div>
+
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    07
+                </div>
+
+                <h2>
+                    Explain a difficult project you worked on.
+                </h2>
+
+                <p>
+                    Describe the problem, your approach,
+                    the solution, and the result.
+                </p>
+
+                <span class="question-tag">
+                    Technical
+                </span>
+
+            </div>
+
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    08
+                </div>
+
+                <h2>
+                    How do you handle pressure?
+                </h2>
+
+                <p>
+                    Explain how you organize your work,
+                    prioritize tasks, and remain calm.
+                </p>
+
+                <span class="question-tag">
+                    Behavioral
+                </span>
+
+            </div>
+
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    09
+                </div>
+
+                <h2>
+                    Describe a time you solved a problem.
+                </h2>
+
+                <p>
+                    Explain the situation, the problem,
+                    the action you took, and the result.
+                </p>
+
+                <span class="question-tag">
+                    Problem Solving
+                </span>
+
+            </div>
+
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    10
+                </div>
+
+                <h2>
+                    Do you have any questions for us?
+                </h2>
+
+                <p>
+                    Prepare thoughtful questions about
+                    the role, team, company, and opportunities.
+                </p>
+
+                <span class="question-tag">
+                    Closing
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- PRACTICE -->
+
+        <section class="practice-section">
+
+            <h2>
+                Ready to Practice? 🚀
+            </h2>
+
+            <p>
+                Start an AI-powered mock interview
+                and improve your interview skills.
+            </p>
+
+            <a
+                href="interview.html"
+                class="practice-button"
+            >
+                Start AI Interview
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 AI Interview Prep.
+            Practice smarter. Interview better.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

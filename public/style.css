@@ -1,0 +1,1088 @@
+/* =========================================================
+   AI INTERVIEW PREP - MAIN WEBSITE STYLE
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7ff;
+    color: #17213d;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    width: 100%;
+    height: 82px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: min(1320px, 92%);
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 48px !important;
+    height: 48px !important;
+
+    max-width: 48px !important;
+    max-height: 48px !important;
+
+    object-fit: contain;
+    display: block;
+}
+
+.logo span {
+    font-size: 30px;
+    font-weight: 700;
+    color: #5146e5;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 34px;
+    margin-left: auto;
+}
+
+.nav-links a {
+    font-size: 18px;
+    color: #17213d;
+    font-weight: 500;
+
+    padding: 10px 0;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #5146e5;
+    transform: translateY(-1px);
+}
+
+.nav-links a.active {
+    color: #5146e5;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   RIGHT SIDE NAVIGATION
+========================================================= */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.user-name {
+    font-size: 17px;
+    color: #53617c;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.login-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 100px;
+    height: 48px;
+
+    padding: 0 22px;
+
+    border: 2px solid #5b45ed;
+    border-radius: 12px;
+
+    background: #ffffff;
+    color: #5146e5;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.login-button:hover {
+    background: #5146e5;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   SIGN UP BUTTON
+========================================================= */
+
+.signup-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 110px;
+    height: 48px;
+
+    padding: 0 22px;
+
+    border-radius: 12px;
+    border: 2px solid #6940e8;
+
+    background: linear-gradient(
+        135deg,
+        #5146e5,
+        #7c35e8
+    );
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.signup-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(81, 70, 229, 0.25);
+}
+
+
+/* =========================================================
+   DASHBOARD TOP BUTTON
+========================================================= */
+
+.dashboard-button-top {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 48px;
+    padding: 0 20px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #5146e5,
+        #7c35e8
+    );
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    white-space: nowrap;
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.dashboard-button-top:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(81, 70, 229, 0.25);
+}
+
+
+/* =========================================================
+   LOGOUT BUTTON
+========================================================= */
+
+.logout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 48px;
+    padding: 0 22px;
+
+    border: 1px solid #ef4444;
+    border-radius: 12px;
+
+    background: #ffffff;
+    color: #dc2626;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.hero {
+    width: min(1320px, 92%);
+
+    min-height: calc(100vh - 82px);
+
+    margin: 0 auto;
+
+    padding: 90px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(420px, 560px);
+
+    align-items: center;
+
+    gap: 80px;
+}
+
+
+/* =========================================================
+   HERO LEFT
+========================================================= */
+
+.hero-left {
+    min-width: 0;
+}
+
+.badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 22px;
+
+    background: #eef0ff;
+    color: #5146e5;
+
+    border-radius: 30px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    margin-bottom: 30px;
+}
+
+.hero-left h1 {
+    font-size: clamp(48px, 5vw, 72px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    color: #17213d;
+
+    margin-bottom: 28px;
+}
+
+.hero-left h1 span {
+    color: #5146e5;
+}
+
+.hero-left p {
+    max-width: 720px;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    color: #52617e;
+
+    margin-bottom: 36px;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-bottom: 40px;
+}
+
+.start-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 58px;
+
+    padding: 0 28px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #5146e5,
+        #7c35e8
+    );
+
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    box-shadow:
+        0 12px 25px rgba(81, 70, 229, 0.2);
+
+    transition: all 0.2s ease;
+}
+
+.start-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 16px 30px rgba(81, 70, 229, 0.28);
+}
+
+.dashboard-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 58px;
+
+    padding: 0 28px;
+
+    border-radius: 12px;
+
+    border: 2px solid #5146e5;
+
+    background: #ffffff;
+
+    color: #5146e5;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    transition: all 0.2s ease;
+}
+
+.dashboard-button:hover {
+    background: #5146e5;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 40px;
+    row-gap: 18px;
+
+    max-width: 650px;
+}
+
+.features div {
+    font-size: 17px;
+
+    color: #476184;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   AI INTERVIEW CARD
+========================================================= */
+
+.interview-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #e4e7f0;
+
+    border-radius: 28px;
+
+    padding: 42px;
+
+    box-shadow:
+        0 20px 55px rgba(34, 43, 80, 0.08);
+}
+
+.card-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.card-header h2 {
+    font-size: 24px;
+
+    color: #17213d;
+}
+
+.live {
+    color: #16a34a;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ROBOT
+========================================================= */
+
+.robot {
+    width: 96px;
+    height: 96px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    background: #f0efff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 48px;
+}
+
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+.interview-card h3 {
+    text-align: center;
+
+    font-size: 27px;
+
+    color: #17213d;
+
+    margin-bottom: 10px;
+}
+
+.question {
+    text-align: center;
+
+    color: #566887;
+
+    font-size: 19px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   ANSWER BOX
+========================================================= */
+
+.answer-box {
+    width: 100%;
+
+    min-height: 160px;
+
+    resize: vertical;
+
+    padding: 18px;
+
+    border: 1px solid #d7dceb;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    color: #17213d;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.answer-box:focus {
+    border-color: #5146e5;
+
+    box-shadow:
+        0 0 0 4px rgba(81, 70, 229, 0.1);
+}
+
+.answer-box::placeholder {
+    color: #8b96aa;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.submit-button {
+    width: 100%;
+
+    min-height: 56px;
+
+    margin-top: 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #5146e5,
+        #7c35e8
+    );
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(81, 70, 229, 0.25);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   SOCIAL MEDIA SECTION
+========================================================= */
+
+.social-section {
+    width: min(1320px, 92%);
+
+    margin: 0 auto;
+
+    padding: 55px 0 45px;
+
+    text-align: center;
+}
+
+.social-section h2 {
+    margin: 0 0 12px;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: #17213d;
+}
+
+.social-section p {
+    margin: 0 0 28px;
+
+    font-size: 17px;
+
+    color: #52617e;
+}
+
+.social-links {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   SOCIAL BUTTON
+========================================================= */
+
+.social-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-width: 175px;
+
+    min-height: 54px;
+
+    padding: 0 25px;
+
+    border-radius: 12px;
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+
+    cursor: pointer;
+}
+
+
+/* SVG SOCIAL LOGO */
+
+.social-icon {
+    width: 25px;
+
+    height: 25px;
+
+    flex-shrink: 0;
+
+    display: block;
+}
+
+
+.social-button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.instagram-button {
+    background: linear-gradient(
+        135deg,
+        #833ab4,
+        #e1306c,
+        #f77737
+    );
+
+    box-shadow:
+        0 8px 20px rgba(225, 48, 108, 0.20);
+}
+
+.instagram-button:hover {
+    box-shadow:
+        0 12px 25px rgba(225, 48, 108, 0.30);
+}
+
+
+/* =========================================================
+   LINKEDIN
+========================================================= */
+
+.linkedin-button {
+    background: #0a66c2;
+
+    box-shadow:
+        0 8px 20px rgba(10, 102, 194, 0.20);
+}
+
+.linkedin-button:hover {
+    box-shadow:
+        0 12px 25px rgba(10, 102, 194, 0.30);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    width: 100%;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.footer p {
+    margin: 0;
+
+    font-size: 15px;
+
+    color: #52617e;
+}
+
+
+/* =========================================================
+   GENERAL FOOTER SUPPORT
+========================================================= */
+
+footer {
+    width: 100%;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .nav-container {
+        width: 94%;
+
+        gap: 18px;
+    }
+
+    .logo span {
+        font-size: 25px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+    }
+
+    .user-name {
+        display: none;
+    }
+
+    .hero {
+        width: 94%;
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(380px, 480px);
+
+        gap: 45px;
+
+        padding: 65px 0;
+    }
+
+    .hero-left h1 {
+        font-size: 52px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        height: auto;
+
+        padding: 15px 0;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        row-gap: 15px;
+    }
+
+    .logo {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .nav-links {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 18px;
+    }
+
+    .nav-actions {
+        justify-content: center;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        min-height: auto;
+
+        padding: 50px 0;
+
+        gap: 45px;
+    }
+
+    .hero-left {
+        text-align: center;
+    }
+
+    .hero-left p {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .features {
+        max-width: 600px;
+
+        margin: 0 auto;
+
+        text-align: left;
+    }
+
+    .interview-card {
+        max-width: 600px;
+
+        margin: 0 auto;
+
+        padding: 30px;
+    }
+
+    .social-section {
+        padding-top: 45px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - SMALL MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .logo span {
+        font-size: 22px;
+    }
+
+    .logo img {
+        width: 42px !important;
+
+        height: 42px !important;
+
+        max-width: 42px !important;
+
+        max-height: 42px !important;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .login-button,
+    .signup-button,
+    .dashboard-button-top,
+    .logout-button {
+        height: 42px;
+
+        padding: 0 14px;
+
+        font-size: 14px;
+    }
+
+    .hero {
+        width: 92%;
+
+        padding: 40px 0;
+    }
+
+    .hero-left h1 {
+        font-size: 40px;
+
+        letter-spacing: -1px;
+    }
+
+    .hero-left p {
+        font-size: 17px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .start-button,
+    .dashboard-button {
+        width: 100%;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .interview-card {
+        padding: 24px;
+
+        border-radius: 20px;
+    }
+
+    .interview-card h3 {
+        font-size: 23px;
+    }
+
+    .question {
+        font-size: 17px;
+    }
+
+    /* SOCIAL MEDIA */
+
+    .social-section {
+        width: 92%;
+
+        padding: 40px 0 35px;
+    }
+
+    .social-section h2 {
+        font-size: 27px;
+    }
+
+    .social-section p {
+        font-size: 15px;
+    }
+
+    .social-links {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .social-button {
+        width: 100%;
+
+        max-width: 280px;
+    }
+
+    .social-icon {
+        width: 24px;
+
+        height: 24px;
+    }
+
+}
